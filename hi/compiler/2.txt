@@ -1,0 +1,19 @@
+
+
+%{
+#include <stdio.h>
+%}
+
+%%
+is|am|are|were    { printf("Verb: %s\n", yytext); }
+go    { printf("Verb: %s\n", yytext); }
+very|simply|quickly|gently    { printf("Adverb: %s\n", yytext); }
+to|from|behind|between    { printf("Preposition: %s\n", yytext); }
+if|then    { printf("Conjunction: %s\n", yytext); }
+.|\n    { /* ignore other characters */ }
+%%
+
+int main() {
+    yylex();
+    return 0;
+}

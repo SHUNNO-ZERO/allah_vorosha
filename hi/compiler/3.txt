@@ -1,0 +1,19 @@
+
+%{
+#include <stdio.h>
+%}
+
+%%
+if    { printf("Keyword: if\n"); }
+else  { printf("Keyword: else\n"); }
+while { printf("Keyword: while\n"); }
+int   { printf("Keyword: int\n"); }
+float { printf("Keyword: float\n"); }
+return { printf("Keyword: return\n"); }
+.|\n  { /* ignore other characters */ }
+%%
+
+int main() {
+    yylex();
+    return 0;
+}
